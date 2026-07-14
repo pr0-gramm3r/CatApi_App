@@ -61,7 +61,7 @@ interface Cat {
   width: number;
 }
 
-const CAT_API_KEY = 'YOUR_CAT_API_KEY' // move to .env / expo-constants in real use
+const CAT_API_KEY = process.env.EXPO_PUBLIC_CAT_API;
 
 const StatBar = ({ label, value }: { label: string; value: number }) => (
   <View style={styles.statCard}>
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
   content: { padding: 20, paddingBottom: 40 },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  backLink: { color: '#16a34a', fontWeight: 'bold', marginBottom: 16 },
+  backLink: { color: '#16a34a', fontWeight: 'bold', marginVertical: 16 },
   errorText: { fontSize: 16, marginBottom: 12, color: '#333' },
   img: { width: '100%', height: 260, borderRadius: 16 },
   infoBlock: { marginTop: 16, gap: 6 },

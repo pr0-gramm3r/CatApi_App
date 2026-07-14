@@ -66,7 +66,7 @@ const Card = () => {
       url: 'https://api.thecatapi.com/v1/images/search',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.CAT_API,
+        'x-api-key': process.env.EXPO_PUBLIC_CAT_API,
       },
       params: {
         limit: 10,
@@ -80,6 +80,7 @@ const Card = () => {
 
         const res = await axios.request(option);
         setData(res.data);
+        console.log(data);
       } catch (err) {
         setError(err);
       }
@@ -104,8 +105,8 @@ const Card = () => {
             style={styles.img}/>
         </View>
         <View style={styles.details}>
-            <Text style={styles.name}>{val.breeds[0]?.name || 'Unknown'}</Text>
-            <Text style={styles.desc}>{val.breeds[0]?.description || 'Unknown'}</Text>
+            <Text style={styles.name}>{val.breeds?.[0]?.name || 'Unknown'}</Text>
+            <Text style={styles.desc}>{val.breeds?.[0]?.description || 'Unknown'}</Text>
         </View>
         <TouchableOpacity 
         onPress={() => handlePress(val)}

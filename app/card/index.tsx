@@ -80,7 +80,6 @@ const Card = () => {
 
         const res = await axios.request(option);
         setData(res.data);
-        console.log(data);
       } catch (err) {
         setError(err);
       }
